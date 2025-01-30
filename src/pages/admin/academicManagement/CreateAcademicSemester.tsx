@@ -13,7 +13,7 @@ export default function CreateAcademicSemester() {
       <Col span={6}>
         <PHForm onSubmit={onSubmit}>
           <PHInput type="text" name="name" label="name"  />
-          <PHInput type="text" name="name"   />
+          <PHInput type="text" name="name"   label="Year"/>
           <Button htmlType="submit">Submit</Button>
         </PHForm>
       </Col>
