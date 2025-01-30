@@ -11,14 +11,7 @@ import PHInput from "../components/form/PHInput";
 
 const Login = () => {
   const dispatch = useAppDispatch();
-  const navigate = useNavigate();
-  // const { register, handleSubmit } = useForm({
-  //   defaultValues: {
-  //     userId: "A-0001",
-  //     password: "admin12345",
-  //   },
-  // });
-  // const { register } = useFormContext();
+  const navigate = useNavigate(); 
   const [login] = useLoginMutation();
 
   const onSubmit = async (data: FieldValues) => {
@@ -48,7 +41,7 @@ const Login = () => {
     <Row justify="center" align="middle" style={{ height: "100vh" }}>
       <PHForm onsubmit={onSubmit} defaultValues={defaultValues}>
         <PHInput type="text" name="userId" label="ID:" />
-        <PHInput type="text" name="password" label="Password: " />
+        <PHInput type="text" name="password" label="Password:" />
         <Button htmlType="submit">Login</Button>
       </PHForm>
     </Row>
