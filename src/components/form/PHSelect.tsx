@@ -1,48 +1,25 @@
-import React from "react";
 import { Form, Select } from "antd";
 import { Controller } from "react-hook-form";
+type TPHSelectProps = {
+  label: string;
+  name: string;
+  options: { value: string; label: string; disabled?: boolean }[] | undefined;
+};
 
-const PHSelect: React.FC = ({ label, name }) => {
-  const handleChange = (value: string) => {
-    console.log(`selected Value>> ${value}`);
-  };
-
+const PHSelect = ({ label, name, options }: TPHSelectProps) => {
   return (
     <Controller
       name={name}
-      render={({ field }) => (
+      render={({ field, fieldState: { error } }) => (
         <Form.Item label={label}>
           <Select
             style={{ width: 200 }}
             placeholder="Search to Select"
             {...field}
-            options={[
-              {
-                value: "Not Identified",
-                label: "Not Identified",
-              },
-              {
-                value: "2",
-                label: "Closed",
-              },
-              {
-                value: "3",
-                label: "Communicated",
-              },
-              {
-                value: "4",
-                label: "Identified",
-              },
-              {
-                value: "5",
-                label: "Resolved",
-              },
-              {
-                value: "6",
-                label: "Cancelled",
-              },
-            ]}
+            options={options}
+            size="large"
           />
+          {error && <small>{error.message}</small>}
         </Form.Item>
       )}
     />
