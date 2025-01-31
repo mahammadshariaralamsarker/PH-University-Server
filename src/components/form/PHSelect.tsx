@@ -13,13 +13,13 @@ const PHSelect = ({ label, name, options }: TPHSelectProps) => {
       render={({ field, fieldState: { error } }) => (
         <Form.Item label={label}>
           <Select
-            style={{ width: 200 }}
+            style={{ width: '100% ' }}
             placeholder="Search to Select"
             {...field}
             options={options}
             size="large"
           />
-          {error && <small>{error.message}</small>}
+          {error && <small style={{color:'red'}}>{error.message}</small>}
         </Form.Item>
       )}
     />
